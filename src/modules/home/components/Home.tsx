@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 export default function Home() {
   const [searcvhValue, setSearchValue] = useState("");
 
+  console.log(searcvhValue);
   return (
     <>
       <Hero onSearch={setSearchValue} />
