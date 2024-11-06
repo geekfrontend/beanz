@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Beanz",
-  description: "Beanz",
+  title: "Cofee Beanz",
+  description: "Cofee Beanz",
 };
 
 export default function RootLayout({
@@ -35,7 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-[480px] mx-auto  md:shadow-md min-h-screen">
+          <div className="max-w-[480px] mx-auto md:shadow-md min-h-screen bg-card text-card-foreground shadow">
             {children}
           </div>
         </ThemeProvider>

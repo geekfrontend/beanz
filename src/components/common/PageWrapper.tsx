@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import React, { ReactNode } from "react";
 
@@ -7,7 +9,7 @@ interface PageWrapperProps {
 }
 
 const PageWrapper = ({ children, className }: PageWrapperProps) => {
-  const baseClass = "min-h-screen bg-white p-6 -mt-8 pb-28 rounded-t-3xl";
+  const baseClass = "min-h-screen bg-background p-6 -mt-8 pb-28 rounded-t-3xl";
   const combinedClassNames = clsx(baseClass, className);
 
   return <div className={combinedClassNames}>{children}</div>;

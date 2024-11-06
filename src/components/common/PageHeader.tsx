@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ArrowBigLeftIcon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "../ui/button";
 
 interface PageHeaderProps {
   title: string;
@@ -14,14 +15,15 @@ const PageHeader = ({ title, isBackButton = false }: PageHeaderProps) => {
   return (
     <div className="flex gap-5 items-center pt-8 px-8 pb-16">
       {isBackButton && (
-        <div
-          className="absolute bg-white rounded-full p-2 cursor-pointer"
+        <Button
+          variant="default"
+          className="absolut w-10 h-10 rounded-full p-2"
           onClick={() => router.back()}
         >
-          <ArrowBigLeftIcon size={20} />
-        </div>
+          <ArrowLeft size={30} strokeWidth={3} />
+        </Button>
       )}
-      <div className="flex-grow text-center font-medium">{title}</div>
+      <div className="flex-grow text-center font-bold">{title}</div>
     </div>
   );
 };

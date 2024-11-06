@@ -1,20 +1,66 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "@/components/common/Hero";
 import { Card } from "@/components/ui/card";
+import { MagicCard } from "@/components/ui/magic-card";
+import { Skeleton } from "@/components/ui/skeleton";
+
+const coffees = [
+  { id: 1, name: "Arabika" },
+  { id: 2, name: "Robusta" },
+  { id: 3, name: "Liberika" },
+  { id: 4, name: "Excelsa" },
+  { id: 5, name: "Bourbon" },
+];
 
 export default function Home() {
-  const [searcvhValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [filteredCoffees, setFilteredCoffees] = useState(coffees);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  console.log(searcvhValue);
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      const filtered = coffees.filter((coffee) =>
+        coffee.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredCoffees(filtered);
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchValue]);
+
   return (
     <>
       <Hero onSearch={setSearchValue} />
-      <Card className="p-6 bg-background -mt-8 pb-28 rounded-t-3xl min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
-        <div className="py-12 text-center text-2xl text-neutral-500">
-          No coffee found
-        </div>
+      <Card className="p-6 bg-background -mt-8 pb-28 rounded-t-3xl min-h-screen">
+        {isLoading ? (
+          <div className="text-center flex flex-col gap-4 ">
+            <Skeleton className="h-[50px] w-full rounded-xl" />
+            <Skeleton className="h-[50px] w-full rounded-xl" />
+            <Skeleton className="h-[50px] w-full rounded-xl" />
+          </div>
+        ) : filteredCoffees.length === 0 ? (
+          <div className="text-center text-2xl text-neutral-500">
+            No coffee found
+          </div>
+        ) : (
+          <div className="text-center flex flex-col gap-4 ">
+            {filteredCoffees.map((coffee) => (
+              <MagicCard
+                key={coffee.id}
+                className="cursor-pointer items-center py-2 px-4  shadow-2xl whitespace-nowrap"
+                gradientColor={"#D9D9D955"}
+              >
+                <h3 className="text-2xl text-left font-semibold">
+                  {coffee.name}
+                </h3>
+              </MagicCard>
+            ))}
+          </div>
+        )}
       </Card>
     </>
   );
