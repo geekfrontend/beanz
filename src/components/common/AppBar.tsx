@@ -76,10 +76,10 @@ const AppBar = () => {
         <div className="w-full -mb-5 ">
           <div className="max-w-32 flex items-center justify-center space-x-2 bg-background  py-1.5 mx-auto p-[4px] rounded-[12px] border">
             <span className="cursor-pointer p-2 rounded-3xl">
-              <Camera onClick={handleCameraClick} size={28} strokeWidth={2.5} />
+              <Camera onClick={handleCameraClick} size={28} strokeWidth={1.5} />
             </span>
             <span className="cursor-pointer  p-2 rounded-3xl">
-              <ImageIcon onClick={openFileInput} size={28} strokeWidth={2.5} />
+              <ImageIcon onClick={openFileInput} size={28} strokeWidth={1.5} />
             </span>
           </div>
         </div>
