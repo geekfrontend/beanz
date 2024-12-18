@@ -9,9 +9,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 const coffees = [
   { id: 1, name: "Arabika" },
   { id: 2, name: "Robusta" },
-  { id: 3, name: "Liberika" },
-  { id: 4, name: "Excelsa" },
-  { id: 5, name: "Bourbon" },
 ];
 
 export default function Home() {
