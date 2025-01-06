@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 type GLCMFeatures = {
   contrast: number;
@@ -21,6 +22,7 @@ type ResultProps = {
 };
 
 const Result: React.FC<ResultProps> = ({ detectionResult }) => {
+  const router = useRouter();
   if (!detectionResult) {
     return (
       <div className="text-center p-4">
@@ -84,7 +86,13 @@ const Result: React.FC<ResultProps> = ({ detectionResult }) => {
         </div>
 
         <div className="flex justify-center mt-6">
-          <Button onClick={() => console.log("Detail button clicked")}>
+          <Button
+            onClick={
+              detectionResult.predicted_class_label === "Arabica"
+                ? () => router.push("coffee/arabica")
+                : () => router.push("coffee/robusta")
+            }
+          >
             Detail
           </Button>
         </div>

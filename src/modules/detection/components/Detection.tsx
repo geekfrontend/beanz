@@ -52,7 +52,7 @@ export default function Detection() {
       formData.append("file", file);
 
       const res = await axios.post(
-        "http://192.168.182.94:8080/predict",
+        "http://192.168.18.234:8080/predict",
         formData,
         {
           headers: {
@@ -83,10 +83,10 @@ export default function Detection() {
 
           <div className="flex justify-center gap-3">
             <Button variant="outline" onClick={() => router.push("/")}>
-              Kembali
+              Back to Home
             </Button>
             <Button variant="default" onClick={handleDetection}>
-              Deteksi
+              Detect
             </Button>
           </div>
         </div>
