@@ -31,7 +31,7 @@ export default function Camera() {
             width="100%"
             height="auto"
             videoConstraints={{
-              facingMode: "user",
+              facingMode: "environment",
             }}
             mirrored={true}
             className="rounded-xl"
