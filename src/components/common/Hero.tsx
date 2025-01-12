@@ -17,10 +17,7 @@ const Hero = ({ onSearch }: HeroProps) => {
           coffee!
         </h1>
       </div>
-      <SearchInput
-        placeholder="Search coffee..."
-        onChange={handleSearchChange}
-      />
+      <SearchInput placeholder="Cari kopi..." onChange={handleSearchChange} />
     </div>
   );
 };

@@ -77,16 +77,16 @@ export default function Detection() {
               <img src={imageUrl} alt="Selected file" className="w-full h-72" />
             </div>
           ) : (
-            <p>No image selected</p>
+            <p>Tidak ada gambar</p>
           )}
           {detectionResult && <Result detectionResult={detectionResult} />}
 
           <div className="flex justify-center gap-3">
             <Button variant="outline" onClick={() => router.push("/")}>
-              Back to Home
+              Kembali
             </Button>
             <Button variant="default" onClick={handleDetection}>
-              Detect
+              Deteksi
             </Button>
           </div>
         </div>

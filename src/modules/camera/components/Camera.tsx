@@ -42,10 +42,10 @@ export default function Camera() {
               className="w-full max-w-32"
               onClick={() => router.back()}
             >
-              Cancel
+              Batal
             </Button>
             <Button className="w-full max-w-32" onClick={capture}>
-              Take a Photo
+              Ambil Gambar
             </Button>
           </div>
         </div>

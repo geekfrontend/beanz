@@ -26,7 +26,7 @@ const Result: React.FC<ResultProps> = ({ detectionResult }) => {
   if (!detectionResult) {
     return (
       <div className="text-center p-4">
-        <p>No result to display.</p>
+        <p>Tidak ada hasil deteksi.</p>
       </div>
     );
   }
@@ -34,62 +34,32 @@ const Result: React.FC<ResultProps> = ({ detectionResult }) => {
   return (
     <div className="mt-6 p-6 bg-white rounded-lg shadow-md border border-gray-300">
       <h3 className="text-2xl font-semibold text-center text-gray-800 mb-6">
-        Detection Result
+        Hasil Deteksi
       </h3>
 
       <div className="space-y-4">
         <div>
-          <h4 className="font-medium text-gray-700">Predicted Class:</h4>
+          <h4 className="font-medium text-gray-700">Prediksi Class:</h4>
           <p className="text-lg font-semibold text-green-600">
             {detectionResult.predicted_class_label}
           </p>
         </div>
 
         <div>
-          <h4 className="font-medium text-gray-700">Prediction Confidence:</h4>
+          <h4 className="font-medium text-gray-700">Keyakinan Prediksi:</h4>
           <p className="text-sm text-gray-600">
-            Arabica:{" "}
+            Arabika:{" "}
             <strong>{detectionResult.predictions[0][0].toFixed(4)}</strong>,
             Robusta:{" "}
             <strong>{detectionResult.predictions[0][1].toFixed(4)}</strong>
           </p>
         </div>
 
-        <div>
-          <h4 className="font-medium text-gray-700">GLCM Features:</h4>
-          <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
-            <div>
-              <p>
-                <strong>Contrast:</strong>{" "}
-                {detectionResult.glcm_features.contrast.toFixed(2)}
-              </p>
-              <p>
-                <strong>Correlation:</strong>{" "}
-                {detectionResult.glcm_features.correlation.toFixed(2)}
-              </p>
-            </div>
-            <div>
-              <p>
-                <strong>Dissimilarity:</strong>{" "}
-                {detectionResult.glcm_features.dissimilarity.toFixed(2)}
-              </p>
-              <p>
-                <strong>Energy:</strong>{" "}
-                {detectionResult.glcm_features.energy.toFixed(2)}
-              </p>
-              <p>
-                <strong>Homogeneity:</strong>{" "}
-                {detectionResult.glcm_features.homogeneity.toFixed(2)}
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div className="flex justify-center mt-6">
           <Button
             onClick={
               detectionResult.predicted_class_label === "Arabica"
-                ? () => router.push("coffee/arabica")
+                ? () => router.push("coffee/arabika")
                 : () => router.push("coffee/robusta")
             }
           >

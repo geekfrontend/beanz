@@ -19,7 +19,7 @@ export default function Coffee({ title }: { title: string }) {
   if (!coffee) {
     return (
       <PageWrapper className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
+        <p>Memuat...</p>
       </PageWrapper>
     );
   }
@@ -32,24 +32,24 @@ export default function Coffee({ title }: { title: string }) {
           <p className="text-gray-700 dark:text-white mb-6 text-justify">
             {coffee.description}
           </p>
-          <h2 className="text-xl font-semibold mb-3">Side Effects</h2>
+          <h2 className="text-xl font-semibold mb-3">Efek Samping</h2>
           <ul className="list-disc list-inside mb-6">
             {coffee.sideEffects.map((effect, index) => (
               <li key={index}>{effect}</li>
             ))}
           </ul>
-          <h2 className="text-xl font-semibold mb-3">Recipes</h2>
+          <h2 className="text-xl font-semibold mb-3">Resep</h2>
           <div className="space-y-6">
             {coffee.recipes.map((recipe, index) => (
               <div key={index} className="p-4 border rounded-md shadow-sm">
                 <h3 className="text-lg font-medium mb-2">{recipe.name}</h3>
-                <h4 className="font-semibold mb-1">Materials:</h4>
+                <h4 className="font-semibold mb-1">Bahan-bahan:</h4>
                 <ul className="list-disc list-inside mb-3">
                   {recipe.materials.map((material, idx) => (
                     <li key={idx}>{material}</li>
                   ))}
                 </ul>
-                <h4 className="font-semibold mb-1">Steps:</h4>
+                <h4 className="font-semibold mb-1">Langkah-langkah:</h4>
                 <ol className="list-decimal list-inside space-y-1">
                   {recipe.steps.map((step, idx) => (
                     <li key={idx}>{step}</li>

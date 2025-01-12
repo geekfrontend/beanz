@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         ) : filteredCoffees.length === 0 ? (
           <div className="text-center text-2xl text-neutral-500">
-            No coffee found
+            Tidak ada hasil pencarian
           </div>
         ) : (
           <div className="text-center flex flex-col gap-4 ">
